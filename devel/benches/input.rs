@@ -3,37 +3,133 @@
 use core::mem;
 
 use bnum::types::U256;
+use fastrand::Rng;
 
-macro_rules! gen_numbers {
-    (@4 $t:ident, $count:expr, $seed:ident) => {{
-        let mut rng = fastrand::Rng::with_seed($seed);
-        let mut vec: Vec<($t, $t, $t, $t)> = Vec::with_capacity($count);
-        // TODO: Fix, this is wayyyy too likely to overflow
-        // Going to need strategies
-        for _ in 0..$count {
-            let x0 = rng.$t(<$t>::MIN..<$t>::MAX);
-            let x1 = rng.$t(<$t>::MIN..<$t>::MAX);
-            let x2 = rng.$t(<$t>::MIN..<$t>::MAX);
-            let x3 = rng.$t(<$t>::MIN..<$t>::MAX);
-            vec.push((x0, x1, x2, x3));
+#[derive(Copy, Clone, PartialEq, Eq)]
+pub enum RandomGen {
+    // Generic
+    Uniform,
+
+    // Integers
+    Simple,
+    SimpleSigned,
+    Large,
+    LargeSigned,
+}
+
+pub trait NumberRng: Sized + Default + Copy {
+    fn uniform(rng: &mut Rng) -> Self;
+    fn simple(rng: &mut Rng) -> Self;
+    fn large(rng: &mut Rng) -> Self;
+    fn simple_signed(rng: &mut Rng) -> Self;
+    fn large_signed(rng: &mut Rng) -> Self;
+
+    #[inline]
+    fn gen(strategy: RandomGen, rng: &mut Rng) -> Self {
+        match strategy {
+            RandomGen::Uniform => Self::uniform(rng),
+            RandomGen::Simple => Self::simple(rng),
+            RandomGen::SimpleSigned => Self::simple_signed(rng),
+            RandomGen::Large => Self::large(rng),
+            RandomGen::LargeSigned => Self::large_signed(rng),
+        }
+    }
+
+    #[inline]
+    fn gen_n<const N: usize>(strategy: RandomGen, rng: &mut Rng, count: usize) -> Vec<[Self; N]> {
+        let mut vec: Vec<[Self; N]> = Vec::with_capacity(count);
+        for _ in 0..count {
+            let mut value = [Self::default(); N];
+            for i in 0..N {
+                value[i] = Self::gen(strategy, rng);
+            }
+            vec.push(value);
         }
         vec
-    }};
+    }
+}
 
-    (@2 $n:ident, $d:ident, $count:expr, $seed:ident) => {{
-        let mut rng = fastrand::Rng::with_seed($seed);
-        let mut vec: Vec<($n, $d)> = Vec::with_capacity($count);
-        // TODO: Fix, this is wayyyy too likely to overflow
-        // Going to need strategies
-        while vec.len() < $count {
-            let num = rng.$n(<$n>::MIN..<$n>::MAX);
-            let den = rng.$d(<$d>::MIN..<$d>::MAX);
-            if den != 0 {
-                vec.push((num, den));
+macro_rules! unsigned_rng {
+    ($($t:ident $smin:literal $smax:literal $lmin:literal $lmax:literal ; )*) => ($(
+        impl NumberRng for $t {
+            #[inline]
+            fn uniform(rng: &mut Rng) -> $t {
+                (rng.$t(<$t>::MIN..<$t>::MAX))
+            }
+
+            #[inline]
+            fn simple(rng: &mut Rng) -> $t {
+                (rng.$t($smin..$smax))
+            }
+
+            #[inline]
+            fn simple_signed(_: &mut Rng) -> $t {
+                unimplemented!()
+            }
+
+            #[inline]
+            fn large(rng: &mut Rng) -> $t {
+                (rng.$t($lmin..$lmax))
+            }
+
+            #[inline]
+            fn large_signed(_: &mut Rng) -> $t {
+                unimplemented!()
             }
         }
-        vec
-    }};
+    )*);
+}
+
+unsigned_rng! {
+    u8 0 50 100 255 ;
+    u16 0 1000 1024 65535 ;
+    u32 0 1000 67108864 4294967295 ;
+    u64 0 1000 288230376151711744 18446744073709551615 ;
+    u128 0 1000 5316911983139663491615228241121378304 340282366920938463463374607431768211455 ;
+}
+
+macro_rules! signed_rng {
+    ($(
+        $t:ident
+        $smin:literal $smax:literal $lmin:literal $lmax:literal
+        $ssmin:literal $ssmax:literal $lsmin:literal $lsmax:literal
+        ;
+    )*) => ($(
+        impl NumberRng for $t {
+            #[inline]
+            fn uniform(rng: &mut Rng) -> $t {
+                (rng.$t(<$t>::MIN..<$t>::MAX))
+            }
+
+            #[inline]
+            fn simple(rng: &mut Rng) -> $t {
+                (rng.$t($smin..$smax))
+            }
+
+            #[inline]
+            fn simple_signed(rng: &mut Rng) -> $t {
+                (rng.$t($ssmin..$ssmax))
+            }
+
+            #[inline]
+            fn large(rng: &mut Rng) -> $t {
+                (rng.$t($lmin..$lmax))
+            }
+
+            #[inline]
+            fn large_signed(rng: &mut Rng) -> $t {
+                (rng.$t($lsmin..$lsmax))
+            }
+        }
+    )*);
+}
+
+signed_rng! {
+    i8 0 50 100 127 -50 50 -127 -100 ;
+    i16 0 1000 1024 32767 -1000 1000 -32767 -1024 ;
+    i32 0 1000 67108864 2147483647 -1000 1000 -2147483647 -67108864 ;
+    i64 0 1000 288230376151711744 9223372036854775807 -1000 1000 -9223372036854775807 -288230376151711744 ;
+    i128 0 1000 5316911983139663491615228241121378304 170141183460469231731687303715884105727 -1000 1000 -170141183460469231731687303715884105727 -5316911983139663491615228241121378304 ;
 }
 
 macro_rules! op_generator {
@@ -41,7 +137,7 @@ macro_rules! op_generator {
         $group.bench_function($name, |bench| {
             bench.iter(|| {
                 $iter.for_each(|&x| {
-                    criterion::black_box($func(x.0, x.1, x.2, x.3));
+                    criterion::black_box($func(x[0], x[1], x[2], x[3]));
                 })
             })
         });
@@ -51,7 +147,7 @@ macro_rules! op_generator {
         $group.bench_function($name, |bench| {
             bench.iter(|| {
                 $iter.for_each(|&x| {
-                    criterion::black_box($func(x.0, x.1));
+                    criterion::black_box($func(x[0], x[1]));
                 })
             })
         });

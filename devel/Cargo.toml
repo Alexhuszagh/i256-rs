@@ -7,11 +7,11 @@ publish = false
 
 [features]
 std = ["i256/std"]
+default = ["std"]
 
 [dependencies.i256]
 path = ".."
 default-features = false
-features = []
 
 [dev-dependencies]
 bnum = "0.12.0"

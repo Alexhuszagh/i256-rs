@@ -7,9 +7,10 @@
 
 // NOTE: This mostly exists for testing and is exposed for that reason.
 #![allow(unused)]
-#![doc(hidden)]
+//#![doc(hidden)] // TODO: Restore
 
 mod div;
 mod native;
 pub use self::div::{div_rem_big, div_rem_small};
 pub use self::native::*;
+// TODO: Use the mul kind as well

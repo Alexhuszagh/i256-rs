@@ -556,7 +556,7 @@ impl i256 {
     /// the boundary of the type.
     #[inline(always)]
     pub const fn wrapping_add(self, rhs: Self) -> Self {
-        let (lo, hi, _) = math::add_i128(self.lo, self.hi, rhs.lo, rhs.hi);
+        let (lo, hi) = math::wrapping_add_i128(self.lo, self.hi, rhs.lo, rhs.hi);
         i256::new(lo, hi)
     }
 
@@ -564,7 +564,7 @@ impl i256 {
     /// at the boundary of the type.
     #[inline(always)]
     pub const fn wrapping_sub(self, rhs: Self) -> Self {
-        let (lo, hi, _) = math::sub_i128(self.lo, self.hi, rhs.lo, rhs.hi);
+        let (lo, hi) = math::wrapping_sub_i128(self.lo, self.hi, rhs.lo, rhs.hi);
         i256::new(lo, hi)
     }
 
@@ -749,7 +749,7 @@ impl i256 {
     /// occurred then the wrapped value is returned.
     #[inline(always)]
     pub const fn overflowing_add(self, rhs: Self) -> (Self, bool) {
-        let (lo, hi, overflowed) = math::add_i128(self.lo, self.hi, rhs.lo, rhs.hi);
+        let (lo, hi, overflowed) = math::overflowing_add_i128(self.lo, self.hi, rhs.lo, rhs.hi);
         (Self::new(lo, hi), overflowed)
     }
 
@@ -772,7 +772,7 @@ impl i256 {
     /// have occurred then the wrapped value is returned.
     #[inline(always)]
     pub const fn overflowing_sub(self, rhs: Self) -> (Self, bool) {
-        let (lo, hi, overflowed) = math::sub_i128(self.lo, self.hi, rhs.lo, rhs.hi);
+        let (lo, hi, overflowed) = math::overflowing_sub_i128(self.lo, self.hi, rhs.lo, rhs.hi);
         (Self::new(lo, hi), overflowed)
     }
 
@@ -1592,7 +1592,7 @@ impl i256 {
     /// This allows optimizations a full addition cannot do.
     #[inline(always)]
     pub fn wrapping_add_usmall(self, n: u128) -> Self {
-        let (lo, hi, _) = math::add_usmall_i128(self.lo, self.hi, n);
+        let (lo, hi) = math::wrapping_add_usmall_i128(self.lo, self.hi, n);
         Self::new(lo, hi)
     }
 
@@ -1601,7 +1601,7 @@ impl i256 {
     /// This allows optimizations a full addition cannot do.
     #[inline(always)]
     pub const fn overflowing_add_usmall(self, n: u128) -> (Self, bool) {
-        let (lo, hi, overflowed) = math::add_usmall_i128(self.lo, self.hi, n);
+        let (lo, hi, overflowed) = math::overflowing_add_usmall_i128(self.lo, self.hi, n);
         (Self::new(lo, hi), overflowed)
     }
 
@@ -1635,7 +1635,7 @@ impl i256 {
     /// This allows optimizations a full addition cannot do.
     #[inline(always)]
     pub fn wrapping_add_ismall(self, n: i128) -> Self {
-        let (lo, hi, _) = math::add_ismall_i128(self.lo, self.hi, n);
+        let (lo, hi) = math::wrapping_add_ismall_i128(self.lo, self.hi, n);
         Self::new(lo, hi)
     }
 
@@ -1644,7 +1644,7 @@ impl i256 {
     /// This allows optimizations a full addition cannot do.
     #[inline(always)]
     pub const fn overflowing_add_ismall(self, n: i128) -> (Self, bool) {
-        let (lo, hi, overflowed) = math::add_ismall_i128(self.lo, self.hi, n);
+        let (lo, hi, overflowed) = math::overflowing_add_ismall_i128(self.lo, self.hi, n);
         (Self::new(lo, hi), overflowed)
     }
 
@@ -1678,7 +1678,7 @@ impl i256 {
     /// This allows optimizations a full subtraction cannot do.
     #[inline(always)]
     pub fn wrapping_sub_usmall(self, n: u128) -> Self {
-        let (lo, hi, _) = math::sub_usmall_i128(self.lo, self.hi, n);
+        let (lo, hi) = math::wrapping_sub_usmall_i128(self.lo, self.hi, n);
         Self::new(lo, hi)
     }
 
@@ -1687,7 +1687,7 @@ impl i256 {
     /// This allows optimizations a full subtraction cannot do.
     #[inline(always)]
     pub const fn overflowing_sub_usmall(self, n: u128) -> (Self, bool) {
-        let (lo, hi, overflowed) = math::sub_usmall_i128(self.lo, self.hi, n);
+        let (lo, hi, overflowed) = math::overflowing_sub_usmall_i128(self.lo, self.hi, n);
         (Self::new(lo, hi), overflowed)
     }
 
@@ -1721,7 +1721,7 @@ impl i256 {
     /// This allows optimizations a full subtraction cannot do.
     #[inline(always)]
     pub fn wrapping_sub_ismall(self, n: i128) -> Self {
-        let (lo, hi, _) = math::sub_ismall_i128(self.lo, self.hi, n);
+        let (lo, hi) = math::wrapping_sub_ismall_i128(self.lo, self.hi, n);
         Self::new(lo, hi)
     }
 
@@ -1730,7 +1730,7 @@ impl i256 {
     /// This allows optimizations a full subtraction cannot do.
     #[inline(always)]
     pub const fn overflowing_sub_ismall(self, n: i128) -> (Self, bool) {
-        let (lo, hi, overflowed) = math::sub_ismall_i128(self.lo, self.hi, n);
+        let (lo, hi, overflowed) = math::overflowing_sub_ismall_i128(self.lo, self.hi, n);
         (Self::new(lo, hi), overflowed)
     }
 
