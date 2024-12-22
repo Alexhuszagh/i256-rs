@@ -10,6 +10,7 @@
 #![doc(hidden)]
 
 mod div;
+mod div128;
 mod native;
 pub use self::div::{div_rem_big, div_rem_small};
 pub use self::native::*;
