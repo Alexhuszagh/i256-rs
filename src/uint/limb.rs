@@ -182,7 +182,8 @@ macro_rules! define {
         /// Add [`u32`] to the big integer, wrapping on
         /// overflow.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(addition)]
+        #[doc = $crate::shared::docs::fixed_doc!(addition)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn wrapping_add_u32(self, n: u32) -> Self {
@@ -192,7 +193,8 @@ macro_rules! define {
         /// Subtract [`u32`] from the big integer, wrapping on
         /// overflow.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(subtraction)]
+        #[doc = $crate::shared::docs::fixed_doc!(subtraction)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn wrapping_sub_u32(self, n: u32) -> Self {
@@ -202,7 +204,8 @@ macro_rules! define {
         /// Multiply our big integer by [`u32`], wrapping on
         /// overflow.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(multiplication)]
+        #[doc = $crate::shared::docs::fixed_doc!(multiplication)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn wrapping_mul_u32(self, n: u32) -> Self {
@@ -212,9 +215,10 @@ macro_rules! define {
         /// Get the quotient and remainder of our big integer divided
         /// by [`u32`], wrapping on overflow.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(division)]
+        #[doc = $crate::shared::docs::fixed_doc!(division)]
         ///
         #[doc = $crate::shared::docs::div_by_zero_doc!(n)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub fn wrapping_div_rem_u32(self, n: u32) -> (Self, u32) {
@@ -227,7 +231,8 @@ macro_rules! define {
         /// Add [`u64`] to the big integer, wrapping on
         /// overflow.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(addition)]
+        #[doc = $crate::shared::docs::fixed_doc!(addition)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn wrapping_add_u64(self, n: u64) -> Self {
@@ -238,7 +243,8 @@ macro_rules! define {
         /// Subtract [`u64`] from the big integer, wrapping on
         /// overflow.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(subtraction)]
+        #[doc = $crate::shared::docs::fixed_doc!(subtraction)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn wrapping_sub_u64(self, n: u64) -> Self {
@@ -249,7 +255,8 @@ macro_rules! define {
         /// Multiply our big integer by [`u64`], wrapping on
         /// overflow.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(multiplication)]
+        #[doc = $crate::shared::docs::fixed_doc!(multiplication)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn wrapping_mul_u64(self, n: u64) -> Self {
@@ -260,9 +267,10 @@ macro_rules! define {
         /// Get the quotient and remainder of our big integer divided
         /// by [`u64`], wrapping on overflow.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(division)]
+        #[doc = $crate::shared::docs::fixed_doc!(division)]
         ///
         #[doc = $crate::shared::docs::div_by_zero_doc!(n)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub fn wrapping_div_rem_u64(self, n: u64) -> (Self, u64) {
@@ -282,7 +290,8 @@ macro_rules! define {
         /// Add [`u128`] to the big integer, wrapping on
         /// overflow.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(addition)]
+        #[doc = $crate::shared::docs::fixed_doc!(addition)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn wrapping_add_u128(self, n: u128) -> Self {
@@ -302,7 +311,8 @@ macro_rules! define {
         /// Subtract [`u128`] from the big integer, wrapping on
         /// overflow.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(subtraction)]
+        #[doc = $crate::shared::docs::fixed_doc!(subtraction)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn wrapping_sub_u128(self, n: u128) -> Self {
@@ -322,7 +332,8 @@ macro_rules! define {
         /// Multiply our big integer by [`u128`], wrapping on
         /// overflow.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(multiplication)]
+        #[doc = $crate::shared::docs::fixed_doc!(multiplication)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn wrapping_mul_u128(self, n: u128) -> Self {
@@ -342,9 +353,10 @@ macro_rules! define {
         /// Get the quotient and remainder of our big integer divided
         /// by [`u128`], wrapping on overflow.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(division)]
+        #[doc = $crate::shared::docs::fixed_doc!(division)]
         ///
         #[doc = $crate::shared::docs::div_by_zero_doc!(n)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub fn wrapping_div_rem_u128(self, n: u128) -> (Self, u128) {
@@ -371,6 +383,7 @@ macro_rules! define {
         /// and if overflow occurred.
         ///
         #[doc = $crate::shared::docs::limb_doc!(addition)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn overflowing_add_ulimb(self, n: $crate::ULimb) -> (Self, bool) {
@@ -382,6 +395,7 @@ macro_rules! define {
         /// and if overflow occurred.
         ///
         #[doc = $crate::shared::docs::limb_doc!(subtraction)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn overflowing_sub_ulimb(self, n: $crate::ULimb) -> (Self, bool) {
@@ -412,6 +426,7 @@ macro_rules! define {
         ///
         /// [`mulx`]: https://www.felixcloutier.com/x86/mulx
         /// [`wrapping_mul_ulimb`]: Self::wrapping_mul_ulimb
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn overflowing_mul_ulimb(self, n: $crate::ULimb) -> (Self, bool) {
@@ -425,6 +440,7 @@ macro_rules! define {
         /// and if overflow occurred.
         ///
         #[doc = $crate::shared::docs::wide_doc!(addition)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn overflowing_add_uwide(self, n: $crate::UWide) -> (Self, bool) {
@@ -436,6 +452,7 @@ macro_rules! define {
         /// and if overflow occurred.
         ///
         #[doc = $crate::shared::docs::wide_doc!(subtraction)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn overflowing_sub_uwide(self, n: $crate::UWide) -> (Self, bool) {
@@ -466,6 +483,7 @@ macro_rules! define {
         ///
         /// [`mulx`]: https://www.felixcloutier.com/x86/mulx
         /// [`wrapping_mul_uwide`]: Self::wrapping_mul_uwide
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn overflowing_mul_uwide(self, n: $crate::UWide) -> (Self, bool) {
@@ -482,7 +500,8 @@ macro_rules! define {
         /// Add [`u32`] to the big integer, returning the value
         /// and if overflow occurred.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(addition)]
+        #[doc = $crate::shared::docs::fixed_doc!(addition)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn overflowing_add_u32(self, n: u32) -> (Self, bool) {
@@ -492,7 +511,8 @@ macro_rules! define {
         /// Subtract [`u32`] from the big integer, returning the value
         /// and if overflow occurred.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(subtraction)]
+        #[doc = $crate::shared::docs::fixed_doc!(subtraction)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn overflowing_sub_u32(self, n: u32) -> (Self, bool) {
@@ -502,7 +522,8 @@ macro_rules! define {
         /// Multiply our big integer by [`u32`], returning the value
         /// and if overflow occurred.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(multiplication)]
+        #[doc = $crate::shared::docs::fixed_doc!(multiplication)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn overflowing_mul_u32(self, n: u32) -> (Self, bool) {
@@ -514,7 +535,8 @@ macro_rules! define {
         /// Add [`u64`] to the big integer, returning the value
         /// and if overflow occurred.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(addition)]
+        #[doc = $crate::shared::docs::fixed_doc!(addition)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn overflowing_add_u64(self, n: u64) -> (Self, bool) {
@@ -525,7 +547,8 @@ macro_rules! define {
         /// Subtract [`u64`] from the big integer, returning the value
         /// and if overflow occurred.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(subtraction)]
+        #[doc = $crate::shared::docs::fixed_doc!(subtraction)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn overflowing_sub_u64(self, n: u64) -> (Self, bool) {
@@ -536,7 +559,8 @@ macro_rules! define {
         /// Multiply our big integer by [`u64`], returning the value
         /// and if overflow occurred.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(multiplication)]
+        #[doc = $crate::shared::docs::fixed_doc!(multiplication)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn overflowing_mul_u64(self, n: u64) -> (Self, bool) {
@@ -549,7 +573,8 @@ macro_rules! define {
         /// Add [`u128`] to the big integer, returning the value
         /// and if overflow occurred.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(addition)]
+        #[doc = $crate::shared::docs::fixed_doc!(addition)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn overflowing_add_u128(self, n: u128) -> (Self, bool) {
@@ -569,7 +594,8 @@ macro_rules! define {
         /// Subtract [`u128`] from the big integer, returning the value
         /// and if overflow occurred.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(subtraction)]
+        #[doc = $crate::shared::docs::fixed_doc!(subtraction)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn overflowing_sub_u128(self, n: u128) -> (Self, bool) {
@@ -589,7 +615,8 @@ macro_rules! define {
         /// Multiply our big integer by [`u128`], returning the value
         /// and if overflow occurred.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(multiplication)]
+        #[doc = $crate::shared::docs::fixed_doc!(multiplication)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn overflowing_mul_u128(self, n: u128) -> (Self, bool) {

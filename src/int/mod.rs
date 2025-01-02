@@ -45,11 +45,13 @@ pub(crate) mod wrapping;
 /// ```
 macro_rules! define {
     (
+        $(#[$attr:meta])?
         name => $name:ident,
         unsigned_t => $u_t:ty,
         bits => $bits:expr  $(,)?
     ) => {
         $crate::shared::int_struct_define!(
+            $(#[$attr])?
             name => $name,
             bits => $bits,
             kind => signed,
@@ -78,7 +80,7 @@ macro_rules! define {
             $crate::int::casts::define!(
                 unsigned_type => $u_t,
                 bits => $bits,
-                wide_type => $crate::IWide,
+                see_type => i64,
                 kind => signed,
             );
             $crate::shared::extensions::define!(

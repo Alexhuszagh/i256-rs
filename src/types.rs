@@ -29,7 +29,9 @@
 #[rustfmt::skip]
 macro_rules! limb_doc {
     () => {
+// a blank line to avoid a large first paragraph in the generated docs
 "
+
 This is guaranteed to have optimal performance for big integer
 to scalar operations, however, the type size may be 32 or
 64 bits depending on the architecture and pointer size.
@@ -44,7 +46,9 @@ performance if the bits in the type used is larger than the limb.
 #[rustfmt::skip]
 macro_rules! wide_doc {
     () => {
+// a blank line to avoid a large first paragraph in the generated docs
 "
+
 The performance of wide (double the bits of the limb) can be highly
 variable: for addition, multiplication, and subtraction it can be
 as fast as operations with limbs, however, the worst case performance

@@ -73,9 +73,11 @@
 //! [`u64`]: https://doc.rust-lang.org/std/primitive.u64.html
 //! [`i256`]: https://crates.io/crates/i256
 
-#![allow(unused_unsafe)]
 #![cfg_attr(feature = "lint", warn(unsafe_op_in_unsafe_fn))]
 #![cfg_attr(not(feature = "std"), no_std)]
+#![cfg_attr(docsrs, feature(doc_cfg))]
+#![cfg_attr(docsrs, feature(doc_auto_cfg))]
+#![allow(unused_unsafe)]
 #![deny(
     clippy::doc_markdown,
     clippy::unnecessary_safety_comment,
@@ -125,16 +127,19 @@ pub use types::{ILimb, IWide, ULimb, UWide};
 /// Both types must have a signed and unsigned variant.
 macro_rules! define {
     (
+        $(#[$attr:meta])?
         unsigned => $unsigned:ident,
         signed => $signed:ident,
         bits => $bits:literal,
     ) => {
         crate::int::define!(
+            $(#[$attr])?
             name => $signed,
             unsigned_t => $unsigned,
             bits => $bits,
         );
         crate::uint::define!(
+            $(#[$attr])?
             name => $unsigned,
             signed_t => $signed,
             bits => $bits,
@@ -149,18 +154,21 @@ define!(
 );
 #[cfg(feature = "i384")]
 define!(
+    #[cfg_attr(docsrs, doc(cfg(feature = "i386")))]
     unsigned => U384,
     signed => I384,
     bits => 384,
 );
 #[cfg(feature = "i512")]
 define!(
+    #[cfg_attr(docsrs, doc(cfg(feature = "i512")))]
     unsigned => U512,
     signed => I512,
     bits => 512,
 );
 #[cfg(feature = "i1024")]
 define!(
+    #[cfg_attr(docsrs, doc(cfg(feature = "i1024")))]
     unsigned => U1024,
     signed => I1024,
     bits => 1024,
