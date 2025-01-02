@@ -5,7 +5,7 @@ macro_rules! define {
     (
         unsigned_type => $u_t:ty,
         bits => $bits:expr,
-        wide_type => $wide_t:ty,
+        see_type => $see_t:ty,
         kind => $kind:ident $(,)?
     ) => {
         $crate::shared::casts::define!(
@@ -21,7 +21,7 @@ macro_rules! define {
         /// This produces the same result as an `as` cast, but ensures that the
         /// bit-width remains the same.
         ///
-        #[doc = $crate::shared::docs::primitive_doc!($wide_t, cast_unsigned)]
+        #[doc = $crate::shared::docs::primitive_doc!($see_t, cast_unsigned)]
         #[inline(always)]
         pub const fn cast_unsigned(self) -> $u_t {
             self.as_unsigned()
