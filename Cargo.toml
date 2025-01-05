@@ -1,6 +1,6 @@
 [package]
 name = "i256"
-version = "0.2.0"
+version = "0.2.1"
 authors = ["Alex Huszagh <ahuszagh@gmail.com>"]
 description = "Optimized implementations of 256-bit signed and unsigned integers."
 repository = "https://github.com/Alexhuszagh/i256-rs"
