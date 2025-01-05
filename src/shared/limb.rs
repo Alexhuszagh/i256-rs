@@ -187,7 +187,8 @@ macro_rules! define {
 
         /// Add [`u32`] to the big integer.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(addition)]
+        #[doc = $crate::shared::docs::fixed_doc!(addition)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn add_u32(self, n: u32) -> Self {
@@ -203,7 +204,8 @@ macro_rules! define {
 
         /// Subtract [`u32`] from the big integer.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(subtraction)]
+        #[doc = $crate::shared::docs::fixed_doc!(subtraction)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn sub_u32(self, n: u32) -> Self {
@@ -219,7 +221,8 @@ macro_rules! define {
 
         /// Multiply our big integer by [`u32`].
         ///
-        #[doc = $crate::shared::docs::limb_doc!(multiplication)]
+        #[doc = $crate::shared::docs::fixed_doc!(multiplication)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn mul_u32(self, n: u32) -> Self {
@@ -236,11 +239,12 @@ macro_rules! define {
         /// Get the quotient and remainder of our big integer divided
         /// by [`u32`].
         ///
-        #[doc = $crate::shared::docs::limb_doc!(division)]
+        #[doc = $crate::shared::docs::fixed_doc!(division)]
         ///
         /// # Panics
         ///
         /// This panics if the divisor is 0.
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub fn div_rem_u32(self, n: u32) -> (Self, u32) {
@@ -256,7 +260,8 @@ macro_rules! define {
 
         /// Get the quotient of our big integer divided by [`u32`].
         ///
-        #[doc = $crate::shared::docs::limb_doc!(division)]
+        #[doc = $crate::shared::docs::fixed_doc!(division)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub fn div_u32(self, n: u32) -> Self {
@@ -265,7 +270,8 @@ macro_rules! define {
 
         /// Get the remainder of our big integer divided by [`u32`].
         ///
-        #[doc = $crate::shared::docs::limb_doc!(division)]
+        #[doc = $crate::shared::docs::fixed_doc!(division)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub fn rem_u32(self, n: u32) -> u32 {
@@ -276,7 +282,8 @@ macro_rules! define {
 
         /// Add [`u64`] to the big integer.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(addition)]
+        #[doc = $crate::shared::docs::fixed_doc!(addition)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn add_u64(self, n: u64) -> Self {
@@ -292,7 +299,8 @@ macro_rules! define {
 
         /// Subtract [`u64`] from the big integer.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(subtraction)]
+        #[doc = $crate::shared::docs::fixed_doc!(subtraction)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn sub_u64(self, n: u64) -> Self {
@@ -308,7 +316,8 @@ macro_rules! define {
 
         /// Multiply our big integer by [`u64`].
         ///
-        #[doc = $crate::shared::docs::limb_doc!(multiplication)]
+        #[doc = $crate::shared::docs::fixed_doc!(multiplication)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn mul_u64(self, n: u64) -> Self {
@@ -325,11 +334,12 @@ macro_rules! define {
         /// Get the quotient and remainder of our big integer divided
         /// by [`u64`].
         ///
-        #[doc = $crate::shared::docs::limb_doc!(division)]
+        #[doc = $crate::shared::docs::fixed_doc!(division)]
         ///
         /// # Panics
         ///
         /// This panics if the divisor is 0.
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub fn div_rem_u64(self, n: u64) -> (Self, u64) {
@@ -345,7 +355,8 @@ macro_rules! define {
 
         /// Get the quotient of our big integer divided by [`u64`].
         ///
-        #[doc = $crate::shared::docs::limb_doc!(division)]
+        #[doc = $crate::shared::docs::fixed_doc!(division)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub fn div_u64(self, n: u64) -> Self {
@@ -354,7 +365,8 @@ macro_rules! define {
 
         /// Get the remainder of our big integer divided by [`u64`].
         ///
-        #[doc = $crate::shared::docs::limb_doc!(division)]
+        #[doc = $crate::shared::docs::fixed_doc!(division)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub fn rem_u64(self, n: u64) -> u64 {
@@ -365,7 +377,8 @@ macro_rules! define {
 
          /// Add [`u128`] to the big integer.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(addition)]
+        #[doc = $crate::shared::docs::fixed_doc!(addition)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn add_u128(self, n: u128) -> Self {
@@ -381,7 +394,8 @@ macro_rules! define {
 
         /// Subtract [`u128`] from the big integer.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(subtraction)]
+        #[doc = $crate::shared::docs::fixed_doc!(subtraction)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn sub_u128(self, n: u128) -> Self {
@@ -397,7 +411,8 @@ macro_rules! define {
 
         /// Multiply our big integer by [`u128`].
         ///
-        #[doc = $crate::shared::docs::limb_doc!(multiplication)]
+        #[doc = $crate::shared::docs::fixed_doc!(multiplication)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn mul_u128(self, n: u128) -> Self {
@@ -414,11 +429,12 @@ macro_rules! define {
         /// Get the quotient and remainder of our big integer divided
         /// by [`u128`].
         ///
-        #[doc = $crate::shared::docs::limb_doc!(division)]
+        #[doc = $crate::shared::docs::fixed_doc!(division)]
         ///
         /// # Panics
         ///
         /// This panics if the divisor is 0.
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub fn div_rem_u128(self, n: u128) -> (Self, u128) {
@@ -434,7 +450,8 @@ macro_rules! define {
 
         /// Get the quotient of our big integer divided by [`u128`].
         ///
-        #[doc = $crate::shared::docs::limb_doc!(division)]
+        #[doc = $crate::shared::docs::fixed_doc!(division)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub fn div_u128(self, n: u128) -> Self {
@@ -443,7 +460,8 @@ macro_rules! define {
 
         /// Get the remainder of our big integer divided by [`u128`].
         ///
-        #[doc = $crate::shared::docs::limb_doc!(division)]
+        #[doc = $crate::shared::docs::fixed_doc!(division)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub fn rem_u128(self, n: u128) -> u128 {
@@ -504,7 +522,8 @@ macro_rules! define {
         /// Get the quotient of our big integer divided by [`u32`],
         /// wrapping on overflow.
         ///
-        #[doc = $crate::shared::docs::wide_doc!(division)]
+        #[doc = $crate::shared::docs::fixed_doc!(division)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub fn wrapping_div_u32(self, n: u32) -> Self {
@@ -514,7 +533,8 @@ macro_rules! define {
         /// Get the remainder of our big integer divided by [`u32`],
         /// wrapping on overflow.
         ///
-        #[doc = $crate::shared::docs::wide_doc!(division)]
+        #[doc = $crate::shared::docs::fixed_doc!(division)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub fn wrapping_rem_u32(self, n: u32) -> u32 {
@@ -526,7 +546,8 @@ macro_rules! define {
         /// Get the quotient of our big integer divided by [`u64`],
         /// wrapping on overflow.
         ///
-        #[doc = $crate::shared::docs::wide_doc!(division)]
+        #[doc = $crate::shared::docs::fixed_doc!(division)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub fn wrapping_div_u64(self, n: u64) -> Self {
@@ -536,7 +557,8 @@ macro_rules! define {
         /// Get the remainder of our big integer divided by [`u64`],
         /// wrapping on overflow.
         ///
-        #[doc = $crate::shared::docs::wide_doc!(division)]
+        #[doc = $crate::shared::docs::fixed_doc!(division)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub fn wrapping_rem_u64(self, n: u64) -> u64 {
@@ -548,7 +570,8 @@ macro_rules! define {
         /// Get the quotient of our big integer divided by [`u128`],
         /// wrapping on overflow.
         ///
-        #[doc = $crate::shared::docs::wide_doc!(division)]
+        #[doc = $crate::shared::docs::fixed_doc!(division)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub fn wrapping_div_u128(self, n: u128) -> Self {
@@ -558,7 +581,8 @@ macro_rules! define {
         /// Get the remainder of our big integer divided by [`u128`],
         /// wrapping on overflow.
         ///
-        #[doc = $crate::shared::docs::wide_doc!(division)]
+        #[doc = $crate::shared::docs::fixed_doc!(division)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub fn wrapping_rem_u128(self, n: u128) -> u128 {
@@ -647,7 +671,8 @@ macro_rules! define {
         /// by [`u32`], returning the value and if overflow
         /// occurred.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(division)]
+        #[doc = $crate::shared::docs::fixed_doc!(division)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline]
         pub fn overflowing_div_rem_u32(self, n: u32) -> ((Self, u32), bool) {
             (self.wrapping_div_rem_u32(n), false)
@@ -657,7 +682,8 @@ macro_rules! define {
         /// by [`u32`], returning the value and if overflow
         /// occurred.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(division)]
+        #[doc = $crate::shared::docs::fixed_doc!(division)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub fn overflowing_div_u32(self, n: u32) -> (Self, bool) {
@@ -669,7 +695,8 @@ macro_rules! define {
         /// by [`u32`], returning the value and if overflow
         /// occurred.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(division)]
+        #[doc = $crate::shared::docs::fixed_doc!(division)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub fn overflowing_rem_u32(self, n: u32) -> (u32, bool) {
@@ -683,7 +710,8 @@ macro_rules! define {
         /// by [`u64`], returning the value and if overflow
         /// occurred.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(division)]
+        #[doc = $crate::shared::docs::fixed_doc!(division)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline]
         pub fn overflowing_div_rem_u64(self, n: u64) -> ((Self, u64), bool) {
             (self.wrapping_div_rem_u64(n), false)
@@ -693,7 +721,8 @@ macro_rules! define {
         /// by [`u64`], returning the value and if overflow
         /// occurred.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(division)]
+        #[doc = $crate::shared::docs::fixed_doc!(division)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub fn overflowing_div_u64(self, n: u64) -> (Self, bool) {
@@ -705,7 +734,8 @@ macro_rules! define {
         /// by [`u64`], returning the value and if overflow
         /// occurred.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(division)]
+        #[doc = $crate::shared::docs::fixed_doc!(division)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub fn overflowing_rem_u64(self, n: u64) -> (u64, bool) {
@@ -719,7 +749,8 @@ macro_rules! define {
         /// by [`u128`], returning the value and if overflow
         /// occurred.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(division)]
+        #[doc = $crate::shared::docs::fixed_doc!(division)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline]
         pub fn overflowing_div_rem_u128(self, n: u128) -> ((Self, u128), bool) {
             (self.wrapping_div_rem_u128(n), false)
@@ -729,7 +760,8 @@ macro_rules! define {
         /// by [`u128`], returning the value and if overflow
         /// occurred.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(division)]
+        #[doc = $crate::shared::docs::fixed_doc!(division)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub fn overflowing_div_u128(self, n: u128) -> (Self, bool) {
@@ -741,7 +773,8 @@ macro_rules! define {
         /// by [`u128`], returning the value and if overflow
         /// occurred.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(division)]
+        #[doc = $crate::shared::docs::fixed_doc!(division)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub fn overflowing_rem_u128(self, n: u128) -> (u128, bool) {
@@ -753,7 +786,7 @@ macro_rules! define {
     (@checked) => {
         // LIMB
 
-        /// Add [`ULimb`][crate::ULimb] to the big integer, returning None on overflow.
+        /// Add [`ULimb`][crate::ULimb] to the big integer, returning `None` on overflow.
         ///
         #[doc = $crate::shared::docs::limb_doc!(addition)]
         #[inline(always)]
@@ -767,7 +800,7 @@ macro_rules! define {
             }
         }
 
-        /// Subtract [`ULimb`][crate::ULimb] from the big integer, returning None on overflow.
+        /// Subtract [`ULimb`][crate::ULimb] from the big integer, returning `None` on overflow.
         ///
         #[doc = $crate::shared::docs::limb_doc!(addition)]
         #[inline(always)]
@@ -781,7 +814,7 @@ macro_rules! define {
             }
         }
 
-        /// Multiply our big integer by [`ULimb`][crate::ULimb], returning None on overflow.
+        /// Multiply our big integer by [`ULimb`][crate::ULimb], returning `None` on overflow.
         ///
         #[doc = $crate::shared::docs::limb_doc!(multiplication)]
         #[inline(always)]
@@ -796,7 +829,7 @@ macro_rules! define {
         }
 
         /// Get the quotient of our big integer divided by an unsigned
-        /// limb, returning None on overflow or division by 0.
+        /// limb, returning `None` on overflow or division by 0.
         ///
         #[doc = $crate::shared::docs::limb_doc!(division)]
         #[inline]
@@ -809,7 +842,7 @@ macro_rules! define {
         }
 
         /// Get the quotient of our big integer divided by an unsigned
-        /// limb, returning None on overflow or division by 0.
+        /// limb, returning `None` on overflow or division by 0.
         ///
         #[doc = $crate::shared::docs::limb_doc!(division)]
         #[inline(always)]
@@ -819,7 +852,7 @@ macro_rules! define {
         }
 
         /// Get the remainder of our big integer divided by a signed
-        /// limb, returning None on overflow or division by 0.
+        /// limb, returning `None` on overflow or division by 0.
         ///
         #[doc = $crate::shared::docs::limb_doc!(division)]
         #[inline(always)]
@@ -830,7 +863,7 @@ macro_rules! define {
 
         // WIDE
 
-        /// Add [`UWide`][crate::UWide] to the big integer, returning None on overflow.
+        /// Add [`UWide`][crate::UWide] to the big integer, returning `None` on overflow.
         ///
         #[doc = $crate::shared::docs::wide_doc!(addition)]
         #[inline(always)]
@@ -844,7 +877,7 @@ macro_rules! define {
             }
         }
 
-        /// Subtract [`UWide`][crate::UWide] from the big integer, returning None on overflow.
+        /// Subtract [`UWide`][crate::UWide] from the big integer, returning `None` on overflow.
         ///
         #[doc = $crate::shared::docs::wide_doc!(addition)]
         #[inline(always)]
@@ -858,7 +891,7 @@ macro_rules! define {
             }
         }
 
-        /// Multiply our big integer by [`UWide`][crate::UWide], returning None on overflow.
+        /// Multiply our big integer by [`UWide`][crate::UWide], returning `None` on overflow.
         ///
         #[doc = $crate::shared::docs::wide_doc!(multiplication)]
         #[inline(always)]
@@ -873,7 +906,7 @@ macro_rules! define {
         }
 
         /// Get the quotient of our big integer divided by an unsigned
-        /// limb, returning None on overflow or division by 0.
+        /// limb, returning `None` on overflow or division by 0.
         ///
         #[doc = $crate::shared::docs::wide_doc!(division)]
         #[inline]
@@ -886,7 +919,7 @@ macro_rules! define {
         }
 
         /// Get the quotient of our big integer divided by an unsigned
-        /// limb, returning None on overflow or division by 0.
+        /// limb, returning `None` on overflow or division by 0.
         ///
         #[doc = $crate::shared::docs::wide_doc!(division)]
         #[inline(always)]
@@ -896,7 +929,7 @@ macro_rules! define {
         }
 
         /// Get the remainder of our big integer divided by a signed
-        /// limb, returning None on overflow or division by 0.
+        /// limb, returning `None` on overflow or division by 0.
         ///
         #[doc = $crate::shared::docs::wide_doc!(division)]
         #[inline(always)]
@@ -909,9 +942,10 @@ macro_rules! define {
     (@checked-fixed) => {
         // U32
 
-        /// Add [`u32`] to the big integer, returning None on overflow.
+        /// Add [`u32`] to the big integer, returning `None` on overflow.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(addition)]
+        #[doc = $crate::shared::docs::fixed_doc!(addition)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn checked_add_u32(self, n: u32) -> Option<Self> {
@@ -923,9 +957,10 @@ macro_rules! define {
             }
         }
 
-        /// Subtract [`u32`] from the big integer, returning None on overflow.
+        /// Subtract [`u32`] from the big integer, returning `None` on overflow.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(addition)]
+        #[doc = $crate::shared::docs::fixed_doc!(addition)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn checked_sub_u32(self, n: u32) -> Option<Self> {
@@ -937,9 +972,10 @@ macro_rules! define {
             }
         }
 
-        /// Multiply our big integer by [`u32`], returning None on overflow.
+        /// Multiply our big integer by [`u32`], returning `None` on overflow.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(multiplication)]
+        #[doc = $crate::shared::docs::fixed_doc!(multiplication)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn checked_mul_u32(self, n: u32) -> Option<Self> {
@@ -952,9 +988,10 @@ macro_rules! define {
         }
 
         /// Get the quotient of our big integer divided by an unsigned
-        /// limb, returning None on overflow or division by 0.
+        /// limb, returning `None` on overflow or division by 0.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(division)]
+        #[doc = $crate::shared::docs::fixed_doc!(division)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline]
         pub fn checked_div_rem_u32(self, n: u32) -> Option<(Self, u32)> {
             if n == 0 {
@@ -965,9 +1002,10 @@ macro_rules! define {
         }
 
         /// Get the quotient of our big integer divided by an unsigned
-        /// limb, returning None on overflow or division by 0.
+        /// limb, returning `None` on overflow or division by 0.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(division)]
+        #[doc = $crate::shared::docs::fixed_doc!(division)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub fn checked_div_u32(self, n: u32) -> Option<Self> {
@@ -975,9 +1013,10 @@ macro_rules! define {
         }
 
         /// Get the remainder of our big integer divided by a signed
-        /// limb, returning None on overflow or division by 0.
+        /// limb, returning `None` on overflow or division by 0.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(division)]
+        #[doc = $crate::shared::docs::fixed_doc!(division)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub fn checked_rem_u32(self, n: u32) -> Option<u32> {
@@ -986,9 +1025,10 @@ macro_rules! define {
 
         // U64
 
-        /// Add [`u64`] to the big integer, returning None on overflow.
+        /// Add [`u64`] to the big integer, returning `None` on overflow.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(addition)]
+        #[doc = $crate::shared::docs::fixed_doc!(addition)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn checked_add_u64(self, n: u64) -> Option<Self> {
@@ -1000,9 +1040,10 @@ macro_rules! define {
             }
         }
 
-        /// Subtract [`u64`] from the big integer, returning None on overflow.
+        /// Subtract [`u64`] from the big integer, returning `None` on overflow.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(addition)]
+        #[doc = $crate::shared::docs::fixed_doc!(addition)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn checked_sub_u64(self, n: u64) -> Option<Self> {
@@ -1014,9 +1055,10 @@ macro_rules! define {
             }
         }
 
-        /// Multiply our big integer by [`u64`], returning None on overflow.
+        /// Multiply our big integer by [`u64`], returning `None` on overflow.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(multiplication)]
+        #[doc = $crate::shared::docs::fixed_doc!(multiplication)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn checked_mul_u64(self, n: u64) -> Option<Self> {
@@ -1029,9 +1071,10 @@ macro_rules! define {
         }
 
         /// Get the quotient of our big integer divided by an unsigned
-        /// limb, returning None on overflow or division by 0.
+        /// limb, returning `None` on overflow or division by 0.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(division)]
+        #[doc = $crate::shared::docs::fixed_doc!(division)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline]
         pub fn checked_div_rem_u64(self, n: u64) -> Option<(Self, u64)> {
             if n == 0 {
@@ -1042,9 +1085,10 @@ macro_rules! define {
         }
 
         /// Get the quotient of our big integer divided by an unsigned
-        /// limb, returning None on overflow or division by 0.
+        /// limb, returning `None` on overflow or division by 0.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(division)]
+        #[doc = $crate::shared::docs::fixed_doc!(division)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub fn checked_div_u64(self, n: u64) -> Option<Self> {
@@ -1052,9 +1096,10 @@ macro_rules! define {
         }
 
         /// Get the remainder of our big integer divided by a signed
-        /// limb, returning None on overflow or division by 0.
+        /// limb, returning `None` on overflow or division by 0.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(division)]
+        #[doc = $crate::shared::docs::fixed_doc!(division)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub fn checked_rem_u64(self, n: u64) -> Option<u64> {
@@ -1063,9 +1108,10 @@ macro_rules! define {
 
         // U128
 
-        /// Add [`u128`] to the big integer, returning None on overflow.
+        /// Add [`u128`] to the big integer, returning `None` on overflow.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(addition)]
+        #[doc = $crate::shared::docs::fixed_doc!(addition)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn checked_add_u128(self, n: u128) -> Option<Self> {
@@ -1077,9 +1123,10 @@ macro_rules! define {
             }
         }
 
-        /// Subtract [`u128`] from the big integer, returning None on overflow.
+        /// Subtract [`u128`] from the big integer, returning `None` on overflow.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(addition)]
+        #[doc = $crate::shared::docs::fixed_doc!(addition)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn checked_sub_u128(self, n: u128) -> Option<Self> {
@@ -1091,9 +1138,10 @@ macro_rules! define {
             }
         }
 
-        /// Multiply our big integer by [`u128`], returning None on overflow.
+        /// Multiply our big integer by [`u128`], returning `None` on overflow.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(multiplication)]
+        #[doc = $crate::shared::docs::fixed_doc!(multiplication)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub const fn checked_mul_u128(self, n: u128) -> Option<Self> {
@@ -1106,9 +1154,10 @@ macro_rules! define {
         }
 
         /// Get the quotient of our big integer divided by an unsigned
-        /// limb, returning None on overflow or division by 0.
+        /// limb, returning `None` on overflow or division by 0.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(division)]
+        #[doc = $crate::shared::docs::fixed_doc!(division)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline]
         pub fn checked_div_rem_u128(self, n: u128) -> Option<(Self, u128)> {
             if n == 0 {
@@ -1119,9 +1168,10 @@ macro_rules! define {
         }
 
         /// Get the quotient of our big integer divided by an unsigned
-        /// limb, returning None on overflow or division by 0.
+        /// limb, returning `None` on overflow or division by 0.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(division)]
+        #[doc = $crate::shared::docs::fixed_doc!(division)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub fn checked_div_u128(self, n: u128) -> Option<Self> {
@@ -1129,9 +1179,10 @@ macro_rules! define {
         }
 
         /// Get the remainder of our big integer divided by a signed
-        /// limb, returning None on overflow or division by 0.
+        /// limb, returning `None` on overflow or division by 0.
         ///
-        #[doc = $crate::shared::docs::limb_doc!(division)]
+        #[doc = $crate::shared::docs::fixed_doc!(division)]
+        #[cfg_attr(docsrs, doc(cfg(feature = "stdint")))]
         #[inline(always)]
         #[must_use = $crate::shared::docs::must_use_copy_doc!()]
         pub fn checked_rem_u128(self, n: u128) -> Option<u128> {

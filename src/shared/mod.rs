@@ -30,6 +30,7 @@ pub(crate) mod wrapping;
 #[rustfmt::skip]
 macro_rules! int_struct_define {
     (
+        $(#[$attr:meta])?
         name => $name:ident,
         bits => $bits:literal,
         kind => $kind:ident $(,)?
@@ -53,6 +54,7 @@ macro_rules! int_struct_define {
         ///
         #[doc = concat!("[`to_le_bytes`]: ", stringify!($name), "::to_le_bytes")]
         #[doc = concat!("[`to_be_bytes`]: ", stringify!($name), "::to_be_bytes")]
+        $(#[$attr])?
         /// [`alternate`]: core::fmt::Formatter::alternate
         /// [`Binary`]: core::fmt::Binary
         /// [`128-bit`]: https://rust-lang.github.io/unsafe-code-guidelines/layout/scalars.html#fixed-width-integer-types
