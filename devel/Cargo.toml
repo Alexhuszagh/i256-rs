@@ -7,6 +7,7 @@ publish = false
 
 [features]
 stdint = ["i256/stdint"]
+num-traits = ["i256/num-traits"]
 default = ["stdint"]
 noasm = ["i256/noasm"]
 limb32 = ["i256/limb32"]

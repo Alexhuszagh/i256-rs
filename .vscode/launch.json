@@ -49,6 +49,27 @@
         {
             "type": "lldb",
             "request": "launch",
+            "name": "num-traits support",
+            "cargo": {
+                "args": [
+                    "+nightly",
+                    "test",
+                    "--no-run",
+                    "--features=num-traits",
+                    "--lib",
+                    "--package=i256"
+                ],
+                "filter": {
+                    "name": "i256",
+                    "kind": "lib"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
             "name": "1.59.0 Support",
             "cargo": {
                 "args": [

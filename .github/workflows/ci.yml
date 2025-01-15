@@ -64,7 +64,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        features: ["limb32", "stdint", "limb32,stdint"]
+        features: ["limb32", "stdint", "limb32,stdint", "num-traits,limb32", "num-traits,stdint", "num-traits,limb32,stdint", ]
 
     steps:
     - name: Checkout
