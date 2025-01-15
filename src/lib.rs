@@ -15,7 +15,7 @@
 //! ## Features
 //!
 //! This crate is optimized for small variants of big integers, but a few
-//! additional types can be enabled via the following features:
+//! additional types or functions can be enabled via the following features:
 #![cfg_attr(feature = "i384", doc = "- `i384`: Add the 384-bit [`I384`] and [`U384`] types.")]
 #![cfg_attr(not(feature = "i384"), doc = "- `i384`: Add the 384-bit `I384` and `U384` types.")]
 #![cfg_attr(feature = "i512", doc = "- `i512`: Add the 512-bit [`I512`] and [`U512`] types.")]
@@ -29,6 +29,13 @@
 //! more expensive on 32-bit architectures): enabling this API adds in overloads
 //! for [`u32`], [`u64`], and [`u128`], guaranteeing API stability across all
 //! platforms.
+//! - `num-traits`: Implement traits from the [`num-traits`] crate for all
+//!   integer types provided by this crate.  Floating-point conversion methods
+//!   are unimplemented and will panic.  The `NumCast` trait and `cast`
+//!   function, by their nature, will not be able cast values above what's
+//!   supported by [`u128`] or [`i128`], even when casting between types
+//!   supplied by this crate.  All other traits and methods from [`num-traits`]
+//!   will behave as expected.
 //!
 //! If you need larger integers, [`crypto-bigint`] has high-performance
 //! addition, subtraction, and multiplication. With integers with a large
@@ -68,6 +75,7 @@
 //! [`crypto-bigint`]: https://crates.io/crates/crypto-bigint
 //! [`bnum`]: https://crates.io/crates/bnum
 //! [`num-bigint`]: https://crates.io/crates/num-bigint
+//! [`num-traits`]: https://crates.io/crates/num-traits
 //! [`malachite`]: https://crates.io/crates/malachite
 //! [`rug`]: https://crates.io/crates/rug
 //! [`u64`]: https://doc.rust-lang.org/std/primitive.u64.html

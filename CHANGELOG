@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## Added
+
+- Optional support for `num-traits`, implementing that crate's integer arithmetic and conversion traits for all provided integer types.
+
 ## [0.2.1] 2025-01-05
 
 ## Changed
