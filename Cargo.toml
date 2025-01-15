@@ -24,8 +24,7 @@ exclude = [
 ]
 
 [features]
-default = ["std", "stdint"]
-std = []
+default = ["stdint"]
 # enable the standard, fixed-width integer APIs for scalar operations.
 stdint = []
 # Enable the `U384` and `I384` types.

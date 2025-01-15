@@ -74,7 +74,7 @@
 //! [`i256`]: https://crates.io/crates/i256
 
 #![cfg_attr(feature = "lint", warn(unsafe_op_in_unsafe_fn))]
-#![cfg_attr(not(feature = "std"), no_std)]
+#![cfg_attr(not(test), no_std)]
 #![cfg_attr(docsrs, feature(doc_cfg))]
 #![cfg_attr(docsrs, feature(doc_auto_cfg))]
 #![allow(unused_unsafe)]
