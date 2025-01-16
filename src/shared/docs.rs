@@ -112,6 +112,7 @@ On overflow, this function will panic if overflow checks are enabled
 pub(crate) use overflow_assertions_doc;
 
 #[rustfmt::skip]
+#[cfg_attr(not(feature = "stdint"), allow(unused_macros))]
 macro_rules! fixed_doc {
     ($op:ident) => {
         concat!(
@@ -122,6 +123,7 @@ This allows optimizations a full ", stringify!($op), " cannot do.
     };
 }
 
+#[cfg_attr(not(feature = "stdint"), allow(unused_imports))]
 pub(crate) use fixed_doc;
 
 #[rustfmt::skip]
