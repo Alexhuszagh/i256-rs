@@ -42,6 +42,9 @@ noasm = []
 # For forcing 32-bit limbs for testing.
 limb32 = []
 
+# Deprecated feature; does nothing.
+std = []
+
 [lints.rust.unexpected_cfgs]
 level = "warn"
 check-cfg = [
