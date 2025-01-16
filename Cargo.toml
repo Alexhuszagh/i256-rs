@@ -24,8 +24,7 @@ exclude = [
 ]
 
 [features]
-default = ["std", "stdint"]
-std = []
+default = ["stdint"]
 # enable the standard, fixed-width integer APIs for scalar operations.
 stdint = []
 # Enable the `U384` and `I384` types.
@@ -42,6 +41,9 @@ lint = []
 noasm = []
 # For forcing 32-bit limbs for testing.
 limb32 = []
+
+# Deprecated feature; does nothing.
+std = []
 
 [lints.rust.unexpected_cfgs]
 level = "warn"
@@ -60,6 +62,9 @@ debug = false
 debug-assertions = false
 lto = true
 
+[dependencies]
+num-traits = { version = "0.2.18", default-features = false, optional = true }
+
 [package.metadata.docs.rs]
-features = ["i384", "i512", "i1024", "stdint"]
+features = ["i384", "i512", "i1024", "stdint", "num-traits"]
 rustdoc-args = ["--cfg", "docsrs"]

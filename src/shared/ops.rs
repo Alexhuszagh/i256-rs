@@ -179,6 +179,10 @@ macro_rules! traits {
             type => $t, impl => core::ops::Shl, op => shl,
             type => $t, impl => core::ops::Shr, op => shr,
         }
+
+        $crate::shared::num_traits_impls::define! {
+            type => $t,
+        }
     };
 }
 

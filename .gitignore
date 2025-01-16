@@ -26,3 +26,4 @@ Cargo.lock
 TODO.md
 *.profraw
 tarpaulin-report.html
+i256-rs.code-workspace

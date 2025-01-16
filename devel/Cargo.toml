@@ -6,9 +6,9 @@ edition = "2021"
 publish = false
 
 [features]
-std = ["i256/std"]
 stdint = ["i256/stdint"]
-default = ["std", "stdint"]
+num-traits = ["i256/num-traits"]
+default = ["stdint"]
 noasm = ["i256/noasm"]
 limb32 = ["i256/limb32"]
 "print-benches" = ["serde", "serde_json", "owo-colors"]

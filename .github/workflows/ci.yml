@@ -64,7 +64,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        features: ["limb32", "stdint", "limb32,stdint"]
+        features: ["limb32", "stdint", "limb32,stdint", "num-traits,limb32", "num-traits,stdint", "num-traits,limb32,stdint", ]
 
     steps:
     - name: Checkout
@@ -74,12 +74,12 @@ jobs:
       uses: dtolnay/rust-toolchain@nightly
 
     - name: Check
-      run: cargo check --features=limb32
+      run: cargo check --no-default-features --features=${{ matrix.features }}
 
     - name: Test
-      run: cargo test --features=limb32
+      run: cargo test --no-default-features --features=${{ matrix.features }}
 
     - name: Run Quickcheck Tests
       run: |
         cd devel
-        cargo  test --features=limb32
+        cargo  test --no-default-features --features=${{ matrix.features }}
