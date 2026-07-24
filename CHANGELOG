@@ -7,36 +7,52 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.5] 2026-07-23
+
+### Added
+
+- Literal `ZERO` and `ONE` consts (@Alexhuszagh, #84)
+
+### Fixed
+
+- MSRV bumped from 1.59.0 to 1.60.0 to match `num-traits` (@Alexhuszagh, #83)
+
+## [0.2.4] 2026-06-30
+
+### Added
+
+- `iter::Sum` and `iter::Product` trait implementations (@Morcifer, #79)
+
 ## [0.2.3] 2025-10-08
 
-## Removed
+### Removed
 
 - Removed `doc_auto_cfg` (rust-lang/rust#138907).
 
 ## [0.2.2] 2025-01-16
 
-## Added
+### Added
 
 - Optional support for `num-traits`, implementing that crate's integer arithmetic and conversion traits for all provided integer types (@pthariensflame, #71)
 
 ## [0.2.1] 2025-01-05
 
-## Changed
+### Changed
 
 - Improved documentation for what functionality is available with what features (@loyd, #70).
 
 ## [0.2.0] 2025-01-01
 
-## Added
+### Added
 
 - `*_u32`, `*_u64`, and `*_u128` methods for direct API interactions with fixed with integral types, at the potential cost of performance on some architectures.
 
-## Changed
+### Changed
 
 - Move `I384`, etc. under the `i384`, `i512`, and `i1024` features.
 - Added many `#[must_use]` attributes for expensive operations which create copies of values.
 
-## Fixed
+### Fixed
 
 - Restored the `*_uwide` and `*_iwide` API methods.
 - Support for 32-bit limbs.
@@ -44,7 +60,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.1.2] 2024-12-30
 
-## Added
+### Added
 
 - Added the `const` comparison functions for the full `Ord` API.
 - Added `to_str_radix`.
@@ -52,7 +68,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `most_significant_limb` and `least_significant_limb` methods.
 - Added `widening_mul` and `carrying_mul` methods.
 
-## Fixed
+### Fixed
 
 - Behavior for `overflowing_div` and similar division methods when dividing by zero to properly panic.
 - Overflow checks for `shr` and `shl` implementations.
@@ -60,13 +76,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Division by an unsigned factor from a signed big integer, to correctly adjust the quotient and remainder for floor division.
 - Optimize unsigned, checked multiplication by looking for immediate overflow.
 
-## Changed
+### Changed
 
 - Made the internal implementation size-generic, mostly, so we can use higher order types for our precomputed division.
 - Improved addition and subtraction performance.
 - Implemented multiplication in big-endian order, without any byte order changes, on big-endian systems.
 
-## Removed
+### Removed
 
 - The `shr_const_*` and `shl_const_*` methods, since `wrapping_shr` should cover every use-case.
 - Our entire wide API, and replaced only with limb.
@@ -75,13 +91,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.1.1] 2024-12-24
 
-## Fixed
+### Fixed
 
 - Crate description and repisitory link on crates.io (#37, @pthariensflame).
 
 ## [0.1.0] 2024-12-24
 
-## Added
+### Added
 
 - Complete API matching the core, primitive integral types.
 - Optimizations for most mathematical operations.
