@@ -191,6 +191,12 @@ mod u256_tests {
     use super::*;
 
     #[test]
+    fn literal_test() {
+        assert_eq!(u256::ZERO, 0u8.into());
+        assert_eq!(u256::ONE, 1u8.into());
+    }
+
+    #[test]
     fn add_test() {
         // NOTE: This is mostly covered elsewhere
         assert_eq!(u256::from_u8(1).wrapping_add(u256::from_u8(1)), u256::from_u8(2));
