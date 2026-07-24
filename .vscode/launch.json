@@ -70,10 +70,10 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "1.59.0 Support",
+            "name": "1.60.0 Support",
             "cargo": {
                 "args": [
-                    "+1.59.0",
+                    "+1.60.0",
                     "test",
                     "--no-run",
                     "--lib",
