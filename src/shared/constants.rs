@@ -22,6 +22,18 @@ macro_rules! define {
         #[allow(deprecated)]
         pub const MAX: Self = Self::max_value();
 
+        /// A value that evaluates to 0.
+        ///
+        /// For values other than `0` and `1`, use the `from_*` conversion
+        /// functions, such as [`Self::from_u64`].
+        pub const ZERO: Self = Self::from_u8(0);
+
+        /// A value that evaluates to 1.
+        ///
+        /// For values other than `0` and `1`, use the `from_*` conversion
+        /// functions, such as [`Self::from_u64`].
+        pub const ONE: Self = Self::from_u8(1);
+
         /// The size of this integer type in bits.
         ///
         /// # Examples
