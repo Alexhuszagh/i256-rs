@@ -8,9 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        # NOTE: mips was dropped from tier 2 support, so remove this
-        # when we go to higher versions. This is just to test BE support.
-        target: [mips64-unknown-linux-gnuabi64, aarch64-unknown-linux-gnu]
+        target: [aarch64-unknown-linux-gnu]
 
     steps:
     - name: Checkout
@@ -22,12 +20,12 @@ jobs:
     - name: Install Cross
       run: |
         cargo install cross@0.2.5
-        rustup toolchain add 1.59.0
+        rustup toolchain add 1.60.0
 
     - name: Run Check
       run: |
-        cross +1.59.0 check --target ${{matrix.target}}
+        cross +1.60.0 check --target ${{matrix.target}}
 
     - name: Run Test
       run: |
-        cross +1.59.0 test --target ${{matrix.target}}
+        cross +1.60.0 test --target ${{matrix.target}}

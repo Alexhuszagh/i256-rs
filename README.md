@@ -36,7 +36,7 @@ Specifically, [`i256`] has optimizations that would be considered anti-features 
 
 **Rustc Compatibility**
 
-[`i256`] currently supports 1.59+, including stable, beta, and nightly. This aims to support at least the Rust included in the latest stable Debian release. Please report any errors compiling a supported [`i256`] version on a compatible Rustc version.
+[`i256`] currently supports 1.60+, including stable, beta, and nightly. This aims to support at least the Rust included in the latest stable Debian release. Please report any errors compiling a supported [`i256`] version on a compatible Rustc version.
 
 **Versioning**
 

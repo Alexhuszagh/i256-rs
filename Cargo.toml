@@ -9,7 +9,7 @@ keywords = ["no_std", "bignum", "int", "math", "uint"]
 license = "MIT OR Apache-2.0"
 categories = ["no-std", "data-structures", "encoding"]
 edition = "2021"
-rust-version = "1.59"
+rust-version = "1.60"
 exclude = [
     "assets/*",
     "docs/*",
