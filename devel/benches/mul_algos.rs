@@ -156,7 +156,7 @@ macro_rules! bench {
         $group.bench_function($name, |bench| {
             bench.iter(|| {
                 $iter.for_each(|&x| {
-                    criterion::black_box($func(x[0], x[1], x[2], x[3]));
+                    std::hint::black_box($func(x[0], x[1], x[2], x[3]));
                 })
             })
         });

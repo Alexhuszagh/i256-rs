@@ -14,7 +14,7 @@ limb32 = ["i256/limb32"]
 "print-benches" = ["serde", "serde_json", "owo-colors"]
 
 [dependencies]
-bnum = { version = "0.12.0", features = ["nightly"] }
+bnum = { version = "0.14.4" }
 serde = { version = "1.0", optional = true, features = ["derive"] }
 serde_json = { version = "1.0", optional = true }
 owo-colors = { version = "4.1", optional = true, features = ["supports-colors"]}
@@ -24,8 +24,8 @@ path = ".."
 default-features = false
 
 [dev-dependencies]
-crypto-bigint = "0.5.5"
-criterion = { version = "0.5.0", features = ["html_reports"] }
+crypto-bigint = "0.7.5"
+criterion = { version = "0.8.2", features = ["html_reports"] }
 fastrand = "2.1.0"
 # FIXME: Replace back to "1.0.4" once the PR is merged.
 #  There's an issue in quickcheck due to an infinitely repeating shrinker.
