@@ -157,7 +157,7 @@ macro_rules! add_bench {
         $group.bench_function($name, |bench| {
             bench.iter(|| {
                 $iter.for_each(|x| {
-                    criterion::black_box($func(x));
+                    std::hint::black_box($func(x));
                 })
             })
         });

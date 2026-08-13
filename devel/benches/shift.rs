@@ -34,7 +34,7 @@ macro_rules! add_group {
                 group,
                 concat!($prefix, "::unsigned-crypto-shl"),
                 crypto_udata.iter(),
-                |x: &(CryptoU256, u32)| x.0.shl(x.1 as usize % 256)
+                |x: &(CryptoU256, u32)| x.0.shl(x.1 % 256)
             );
             add_bench!(
                 group,
@@ -53,7 +53,7 @@ macro_rules! add_group {
                 group,
                 concat!($prefix, "::unsigned-crypto-shr"),
                 crypto_udata.iter(),
-                |x: &(CryptoU256, u32)| x.0.shr(x.1 as usize % 256)
+                |x: &(CryptoU256, u32)| x.0.shr(x.1 % 256)
             );
             add_bench!(
                 group,
