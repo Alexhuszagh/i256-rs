@@ -314,6 +314,34 @@ macro_rules! define {
 
             (lo, hi)
         }
+
+        /// Calculates the "full multiplication" `self * rhs + carry + add`
+        /// without the possibility to overflow.
+        ///
+        /// This returns the low-order (wrapping) bits and the high-order (overflow) bits
+        /// of the result as two separate values, in that order.
+        ///
+        /// Performs "long multiplication" which takes in an extra amount to add, and may return an
+        /// additional amount of overflow. This allows for chaining together multiple
+        /// multiplications to create "big integers" which represent larger values.
+        ///
+        /// If you don't need the `add`, then you can use [`Self::carrying_mul`] instead.
+        ///
+        #[doc = $crate::shared::docs::primitive_doc!(u64, carrying_mul_add)]
+        #[doc = $crate::shared::docs::nightly_doc!()]
+        #[inline]
+        #[must_use = $crate::shared::docs::must_use_copy_doc!()]
+        pub const fn carrying_mul_add(self, rhs: Self, carry: Self, add: Self) -> (Self, Self) {
+            let lhs = self.to_ne_limbs();
+            let rhs = rhs.to_ne_limbs();
+            let (lo, hi) = $crate::math::mul::widening(&lhs, &rhs);
+            let (lo, overflowed1) = Self::from_ne_limbs(lo).overflowing_add(carry);
+            let (lo, overflowed2) = lo.overflowing_add(add);
+            let overflowed = (overflowed1 as $crate::ULimb) + (overflowed2 as $crate::ULimb);
+            let hi = Self::from_ne_limbs(hi).add_ulimb(overflowed);
+
+            (lo, hi)
+        }
     };
 }
 
